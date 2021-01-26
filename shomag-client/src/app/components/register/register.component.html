@@ -1,0 +1,67 @@
+<section class="section">
+  <div class="columns is-centered">
+    <div class="column is-8-tablet is-6-desktop is-4-widescreen">
+      <div class="box">
+        <div class="card-content">
+          <form [formGroup]="registerForm"(submit)="register()" class="form-signin">
+            <h2 class="title has-text-centered is-size-3">Shomag</h2>
+            <div class="field">
+              <label class="label" for="username">Username</label>
+              <div class="control">
+                <input formControlName="username"
+                       class="input"
+                       type="username"
+                       id="username"
+                       [class.is-danger]="isValidInput('username')"
+                       placeholder="Username">
+                <div *ngIf="isValidInput('username')" class="error">
+                  <div class="input-error" *ngIf="registerForm.controls['username'].errors.required">
+                    This field is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label" for="password">Password</label>
+              <input formControlName="password"
+                     class="input"
+                     type="password"
+                     id="password"
+                     [class.is-danger]="isValidInput('password')"
+                     placeholder="Password">
+              <div *ngIf="isValidInput('password')" class="error">
+                <div class="input-error" *ngIf="registerForm.controls['password'].errors.required">
+                  This field is required.
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label" for="password">Re-type password</label>
+              <input formControlName="password2"
+                     class="input"
+                     type="password"
+                     id="password2"
+                     [class.is-danger]="isValidInput('password2')"
+                     placeholder="Re-type password">
+              <div *ngIf="isValidInput('password2')" class="error">
+                <div class="input-error" *ngIf="registerForm.controls['password2'].errors.required">
+                  This field is required.
+                </div>
+                <div class="input-error" *ngIf="registerForm.controls['password2'].errors.mismatch">
+                  The passwords must match
+                </div>
+              </div>
+            </div>
+            <div class="field has-text-centered">
+              <button class="button is-medium is-primary is-fullwidth" type="submit">Register</button>
+              <div *ngIf="errorMessage" class="error">{{errorMessage}}</div>
+            </div>
+            <div class="field has-text-centered">
+              <a routerLink="/login" class="text-muted d-block d-md-inline mt-2">Already registered? Click here!</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

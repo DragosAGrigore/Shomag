@@ -1,0 +1,19 @@
+<div class="tile is-ancestor is-vertical search-content">
+    <div class="tile is-parent">
+        <article class="tile is-child is-primary">
+            <div class="content">
+                <p class="title">Welcome customer, prepare your pennies for Shomag!</p>
+                <p class="subtitle">Look for products and add them to your cart.</p>
+                <div class="content is-flex">
+                  <input class="input" placeholder="Search here..." (keyup)="typeQuery($event)">
+                </div>
+                <button class="button is-warning" (click)="getProducts()">Search</button>
+
+            </div>
+        </article>
+    </div>
+    <div class="tile is-parent">
+        <h1 *ngIf="products.length === 0">There are no products available.</h1>
+        <app-shomag-list [cards]="true" [products]="products" (addToCartEmitter)="addToCart($event)"></app-shomag-list>
+    </div>
+</div>

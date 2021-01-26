@@ -1,0 +1,97 @@
+.browse {
+    &-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &-card {
+        width: 290px;
+        margin: 0 0 1.25rem 1rem;
+        background-color: white;
+        border-radius: 6px;
+        box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+        color: #4a4a4a;
+    }
+
+    &-image {
+        margin: 0;
+        height: auto;
+        background-image: url('../../../../assets/shomag.png');
+        background-size: 100%;
+    
+        img {
+          border-radius: 5px 5px 0 0;
+        }
+    }
+}
+
+.card-overlay {
+    position:relative;
+}
+
+.circle {
+    position: absolute;
+    left: 83%;
+    top: -17px;
+    z-index: 2;
+    font-size: 3rem;
+    color: green;
+}
+
+.cart {
+    position: absolute;
+    left: 87%;
+    z-index: 3;
+    font-size: 1.5rem;
+    color: rgb(221, 232, 241);
+    cursor: pointer;
+
+    &-card {
+        background-color: white;
+        border-radius: 4px;
+        box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+        color: #4a4a4a;
+        display: grid;
+        grid-template-columns: 90px auto 26px;
+        grid-template-rows: 100px;
+        margin-bottom: 0.5rem;
+        background-size: cover;
+        align-items: center;
+    }
+
+    &-img {
+        border-radius: 5px 0 0 5px;
+    }
+
+    &-image {
+        top: 19px;
+        margin: 0 0 0 5px;
+    }
+
+    &-text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &-content {
+        padding: 0 10px;
+        font-weight: bold;
+    }
+
+    &:hover {
+        color: rgb(252, 252, 252);
+    }
+
+    &:active {
+        top: 1px;
+    }
+}
+
+.product-content {
+    padding: 10px;
+    font-weight: bold;
+}
+
+img {
+    cursor: pointer;
+}

@@ -1,0 +1,12 @@
+<div *ngIf="products.length !== 0">
+  <article class="notification is-link">
+    <div class="content">
+      <div class="cart-row">
+        <fa-icon class="circle" [icon]="faCartPlus"></fa-icon>
+        <span class="title">Cart</span>
+      </div>
+      <app-shomag-list [cards]="false" [products]="products" (deleteEmitter)="delete($event)"></app-shomag-list>
+      <p>Total items: <span style="font-weight: 700">{{products.length}}</span></p>
+    </div>
+  </article>
+</div>

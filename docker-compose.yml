@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - 27017:27017
+
+  shomag-app:
+    container_name: shomag-app
+    restart: always
+    build: ./shomag-app
+    volumes:
+      - ./shomag-app:/usr/src/shomag-app
+    ports:
+      - 4100:4100
+    links:
+      - shomag-cart
+      - shomag-search
+
+  shomag-search:
+    container_name: shomag-search
+    restart: always
+    build: ./shomag-search
+    volumes:
+      - ./shomag-search:/usr/src/shomag-search
+    ports:
+      - 4101:4101
+
+  shomag-cart:
+    container_name: shomag-cart
+    restart: always
+    build: ./shomag-cart
+    volumes:
+      - ./shomag-cart:/usr/src/shomag-cart
+    ports:
+      - 4102:4102
+    links:
+      - mongo
+
+  shomag-client:
+    container_name: shomag-client
+    restart: always
+    build: ./shomag-client
+    volumes:
+      - ./shomag-client:/usr/src/shomag-client
+    ports:
+      - 4200:4200
+    links:
+      - shomag-app

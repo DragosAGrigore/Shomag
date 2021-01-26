@@ -1,0 +1,9 @@
+{
+  "/api/*": {
+    "target": "http://shomag-app:4100",
+    "secure": false,
+    "pathRewrite": { "^/api": "" },
+    "crossOrigin": true,
+    "logLevel": "debug"
+  }
+}

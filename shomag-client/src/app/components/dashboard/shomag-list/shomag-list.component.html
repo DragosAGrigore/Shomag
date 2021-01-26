@@ -1,0 +1,31 @@
+<span *ngIf="cards">
+    <div class="browse-container">
+        <div *ngFor="let product of products" class="browse-card">
+            <div class="card-overlay">
+                <fa-icon class="cart" [icon]="faCartPlus" (click)="addToCartEmitter.next(product)"></fa-icon>
+                <fa-icon class="circle" [icon]="faCircle"></fa-icon>
+                <figure class="browse-image image is-4by3">
+                    <img [src]="product.image" (click)="goToImage(product.image)">
+                </figure>
+                <div class="product-content">
+                    {{product.title}}
+                </div>
+            </div>
+        </div>
+    </div>
+</span>
+
+<span *ngIf="!cards">
+    <div *ngFor="let product of products" class="cart-card">
+        <figure class="cart-image image">
+            <img class="cart-img" [src]="product.image" (click)="goToImage(product.image)">
+        </figure>
+        <div class="cart-text cart-content">
+            {{product.title}}
+        </div>
+        <div>
+            <a class="delete" (click)="deleteEmitter.next(product)"></a>
+        </div>
+    </div>
+</span>
+

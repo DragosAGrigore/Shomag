@@ -1,0 +1,53 @@
+<section class="section">
+  <div class="columns is-centered">
+    <div class="column is-8-tablet is-6-desktop is-4-widescreen">
+      <div class="box">
+        <div class="card-content">
+          <form [formGroup]="loginForm" (submit)="login()" class="form-signin">
+            <h2 class="title has-text-centered is-size-3">Shomag</h2>
+            <div class="field">
+              <label class="label" for="username">Username</label>
+              <div class="control">
+                <input class="input"
+                       type="username"
+                       [class.is-danger]="isValidInput('username')"
+                       id="username"
+                       formControlName="username"
+                       placeholder="Username">
+              </div>
+              <div *ngIf="isValidInput('username')" class="error">
+                <div *ngIf="loginForm.controls['username'].errors.required" class="input-error">
+                  Username is required.
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label" for="password">Password</label>
+              <input class="input"
+                     type="password"
+                     [class.is-danger]="isValidInput('password')"
+                     id="password"
+                     formControlName="password"
+                     placeholder="Password">
+              <div *ngIf="isValidInput('password')" class="error">
+                <div *ngIf="loginForm.controls['password'].errors.required" class="input-error">
+                  Password is required.
+                </div>
+              </div>
+            </div>
+
+            <div class="field has-text-centered">
+              <button class="button is-medium is-primary is-fullwidth" type="submit">Log in</button>
+              <div *ngIf="errorMessage" class="error">{{errorMessage}}</div>
+            </div>
+
+            <div class="field has-text-centered">
+              <a routerLink="/register" class="text-muted d-block d-md-inline mt-2">Create an account</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

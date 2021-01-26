@@ -1,0 +1,32 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item">
+      <img src="../../../assets/shomag.png" width="28" height="28">
+    </a>
+    <p class="logo-text">
+      Shomag - World's largest shopping point
+    </p>
+  </div>
+  <div class="navbar-end">
+    <div class="navbar-item">
+      <div class="field is-grouped">
+        <p class="control">
+          Logged in as: 
+          <span style="font-weight: 700;">{{username}}</span>
+        </p>
+        <p class="control">
+          <button class="button is-danger" (click)="logOut()">Log out</button>
+        </p>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="tile is-ancestor">
+  <div class="tile is-parent is-vertical is-6">
+    <app-shomag-search class="is-child"></app-shomag-search>
+  </div>
+  <div class="tile is-parent is-vertical is-6">
+    <app-shomag-cart class="is-child"></app-shomag-cart>
+  </div>
+</div>
